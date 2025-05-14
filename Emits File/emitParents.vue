@@ -6,11 +6,10 @@
   //設定一個儲存位置放子組件帶來的資料
 
   const forMom = (msg) =>{
-    // 命名子組件內容為 msg 帶入父組件
+    // 命名子組件內容為 msg 並帶入父組件
     message.value = msg
   }
   const forDear = (msg) =>{
-    // 命名子組件內容為 msg 帶入 父組件
     message.value = msg
   }
   //接收並處理子組件來的資料
