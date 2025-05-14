@@ -5,5 +5,5 @@
 
 # 練習內容
 - Props 傳值 [Props File](https://github.com/Wcosine/Prop-practice/tree/main/Props%20File)
-- Emit 事件傳回父元件
+- Emit 事件傳回父元件 [Emits File](https://github.com/Wcosine/Prop-practice/tree/main/Emits%20File)
 - Slot 插槽練習
