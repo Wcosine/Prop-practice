@@ -18,7 +18,7 @@
 </script>
 
 <template>
-<emitChild @Mothers="forMom" @Valentines="forDear"/>
+<emitChild @mothers="forMom" @valentines="forDear"/>
 <!-- 這裡要監聽子組件的動作,所以要用子組件定義的名稱 -->
 <h1> {{ message }} </h1>
 </template>
