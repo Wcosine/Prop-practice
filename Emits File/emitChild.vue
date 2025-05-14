@@ -4,10 +4,10 @@
   // 宣告要發送的事件名稱, 需用陣列型態/物件型態, 且可以放入多組
 
   const mothersDay = () =>{
-    emit('Mothers','Happy Mothers Day')
+    emit('mothers','Happy Mothers Day')
   }
   const valentinesDay = () =>{
-    emit('Valentines','Happy Valentines Day')
+    emit('valentines','Happy Valentines Day')
   }
   // 定義一個函式來"觸發"事件, 所以用function箭頭函式包裝emit
   // emit('名稱', '內容')
