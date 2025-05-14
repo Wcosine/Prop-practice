@@ -1,6 +1,6 @@
 <script setup>
   import {defineEmits} from 'vue'
-  const emit = defineEmits(['Mothers','Valentines'])
+  const emit = defineEmits(['mothers','valentines'])
   // 宣告要發送的事件名稱, 需用陣列型態/物件型態, 且可以放入多組
 
   const mothersDay = () =>{
