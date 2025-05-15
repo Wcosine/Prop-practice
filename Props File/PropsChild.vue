@@ -1,9 +1,18 @@
 <script setup>
   const props = defineProps({
     // 定義資料的形式
-    id: Number, //數字型態
-    name: String, //字串型態
-    age: Number //數字型態
+    id: {
+      type : Number, //數字型態
+      default : 0,
+    }, 
+    name: {
+      type: String, //字串型態
+      default : (""),
+    },
+    age: {
+      type : Number, //數字型態
+      default : 0,
+    }
   });
 </script>
 
