@@ -30,45 +30,50 @@ const handleBackdropClick = () =>{
     // 觸發關閉指令
   }
 }
+//如果沒有設定此項, closeOnBackdropClick會引發不管按何處都會關閉彈出視窗的狀況
 </script>
 
 <template>
   <div v-if="visible" @click.self="handleBackdropClick" class="modal-backdrop">  
   <!--
       #補充說明:
-      - v-if控制視窗開關, 預設為true
+      - v-if控制視窗開關, 沒有此項彈出視窗將無法關閉, 由父組件決定其值
       - @click.self, 當點擊事件發生在自己的時候, 觸發handleBackdropClick(點擊背景關閉)
   -->
     <div class="modal">
-      
-      <!-- Header slot -->
+
+      <!-- 彈出視窗的畫面模板 -->
       <div class="modal-header">
         <div class="modal-header-content">
           <slot name="header"></slot>
+          <!-- 這是跳出視窗模板的表頭, 透過父組件讓此元件可以被重複利用 -->
           <!-- 父組件由此處新增架構或內容, 其餘為固定模板 -->
           <!-- 父組件使用方式: <template #header> -->
         </div>
         <button v-if="showCloseX" @click="close" class="modal-close">&times;</button>
-         <!--
-            #補充說明:
-            - v-if控制showCloseX "X"是否顯示, 預設為true
-            - @click="close", 當點擊事件發身時, 觸發emit(close)
-            - &times; 顯示"x"
-          -->
-        
-        <!-- default slot -->
-        <div class="modal-body">
-          <slot></slot>
-        </div>
-        
-        <!-- Footer slot -->
-        <div class="modal-footer">
-          <slot name="footer">
-            <button @click="close">關閉</button>
-          </slot>
-        </div>
-        
       </div>
+      <!--彈出視窗模板結束-->
+      <!--
+        #補充說明:
+        - v-if控制showCloseX "X"是否顯示, 由父組件決定其值
+        - @click="close", 當點擊事件發生時, 觸發emit(close)
+        - &times; 顯示"x"
+      -->
+      
+      <!--彈出視窗的body-->  
+      <div class="modal-body">
+        <slot></slot>
+      </div>
+      <!--彈出視窗body結束-->  
+
+      <!--彈出視窗的footer -->
+      <div class="modal-footer">
+        <slot name="footer">
+          <button @click="close">關閉</button>
+        </slot>
+      </div>
+      <!--彈出視窗footer結束 -->  
+    </div>
   </div>
 </template>
 
