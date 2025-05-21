@@ -43,6 +43,10 @@ const openDetailModal = (msg_id) =>{
 
 // 提交新增留言設定
 const submitNewMessage = () =>{
+  if(!newMessage.value.author || !newMessage.value.content){
+    alert('請填寫完整留言喔～')
+    return
+  }
   const newId = messages.value.length + 1
   // 新的ID值為 messages的物件長度+1
   messages.value.push({
@@ -56,6 +60,8 @@ const submitNewMessage = () =>{
     // hour12: false 意思是使用 24 小時制
   })
   // messages內容列需包含以上id、author、content、time的key才可以在這被使用
+  showNewModal.value = false
+  // 完整填寫後點擊提交按鈕, 則關閉彈出視窗
 }
 // 提交新增留言設定結束
 
@@ -85,7 +91,7 @@ const submitNewMessage = () =>{
     <template #header>
       <h3>新增留言</h3>
     </template>
-    <form class="newMsgModalHeader" @submit.prevent="submitNewMessage">
+    <form class="newMsgModalHeader" @submit.prevent="submitNewMessage" id="newMsgModalHeader">
     <!-- .prevent 是防止提交時自動重新整理畫面 -->
         <label>
           作者：
