@@ -70,6 +70,7 @@ const handleBackdropClick = () =>{
       <div class="modal-footer">
         <slot name="footer">
           <button @click="close">關閉</button>
+          <!--按下子元件 button → 執行 close() → emit('close') → 外層（父層）接收 → 觸發showDetailModal = false-->
         </slot>
       </div>
       <!--彈出視窗footer結束 -->  
